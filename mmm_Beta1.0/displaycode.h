@@ -26,12 +26,13 @@ void draw_words(String line, bool f) {
     Serial.println();
   }
   Serial.println((line.substring(line.indexOf("["), line.indexOf("]") + 1)));
-  u8g2Fonts.setFont(chinese_city_gb2312);
+  u8g2Fonts.setFont(u8g2_font_unifont_t_extended);
   u8g2Fonts.print(line.substring(line.indexOf("["), line.indexOf("]") + 1));
   display.drawLine(5, 35, 245, 35, 0); //画水平线
   int k = line.indexOf("]") + 1;
   String s4 = "";
   int x = 5, y = 50;
+  u8g2Fonts.setFont(chinese_city_gb2312);
   while (k < line.length()) {
     if ((k != 0 && line[k - 1] != ' ') || line[k] != ' ') {
       s4 += line[k];
