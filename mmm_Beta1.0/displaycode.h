@@ -64,7 +64,7 @@ void button() {
   dis_count = 0;
   bool f_word = false;
   bool continue_flag = false;//标记是否同步成功
-//  bool button_flag = true;//按钮是否按下
+  //  bool button_flag = true;//按钮是否按下
   int conut_flag = 0 ;
   String filename = "";
   if (EEPROM.read(8) != '/') {
@@ -87,9 +87,9 @@ void button() {
   File wordsFile ;
   if (filename == "/book.txt") {
     wordsFile = SPIFFS.open("/words.txt", "a");
-    Serial.println("wordsFile创建成功");
+//    Serial.println("wordsFile创建成功");
   }
-  //如果文本未读完
+
   while (dataFile.available()) {
     //同步进度
     if (conut_flag == read_flag) {
@@ -100,12 +100,19 @@ void button() {
       u8g2Fonts.setBackgroundColor(GxEPD_WHITE);
       u8g2Fonts.setCursor(0, 120);
       u8g2Fonts.print("进度同步成功！开始学习吧！");
+      
       display.nextPage();
+      break;
     } else {
-        //读一条数据
-        dataFile.readStringUntil('\n');
-        conut_flag++;
+      //读一条数据
+      dataFile.readStringUntil('\n');
+      conut_flag++;
     }
+    
+  }
+
+  //如果文本未读完
+  while (dataFile.available()) {
     //同步成功，进入词库使用功能
     if (continue_flag) {
       if (dis_count == 0) {
@@ -114,11 +121,11 @@ void button() {
         display.setPartialWindow(0, 0, display.width(), display.height());
       }
       display.fillScreen(GxEPD_WHITE);
-      if(!f_word){
+      if (!f_word) {
         line = dataFile.readStringUntil('\n');
       }
-      
-       //下面处理如何显示
+
+      //下面处理如何显示
       while (true) {
         //右键按下判断是切换词库还是下一个词条，或切换阅读/默写模式
         if ( digitalRead(key3) == LOW) {
@@ -156,7 +163,7 @@ void button() {
             display.setFullWindow();
             draw_words(line, flag);
             display.fillScreen(GxEPD_WHITE);
-            dis_count=1;
+            dis_count = 1;
             read_flag++;
             //记录进度
             if (filename == "/book.txt") {
@@ -194,7 +201,7 @@ void button() {
             }
             break;
           }
-//          button_flag = true;
+          //          button_flag = true;
         }
         if (digitalRead(key2) == LOW) {
           delay(100);
