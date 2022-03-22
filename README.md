@@ -21,10 +21,12 @@
 感谢 甘草酸不酸 提供的修改库U8g2_for_Adafruit_GFX及汉字字库
 
 1. 需要将本项目提供的U8g2_for_Adafruit_GFX库替换官方的U8g2_for_Adafruit_GFX库！
-2. 第一次烧录需要重置eeprom，因为该位置默认值我255，如果不做处理会直接从255位置开始阅读，所以需要将49~52行取消注释上传一遍![image-20220321131042813](F:\新版C++课程\typora-user-images\image-20220321131042813.png)
+2. 第一次烧录需要重置eeprom，因为该位置默认值我255，如果不做处理会直接从255位置开始阅读，所以需要将49~52行取消注释上传一遍![图片](https://user-images.githubusercontent.com/32239713/159401172-e15e5f80-4c89-4f9a-b4e3-98a89f70f83e.png)
+
 3. 烧录完成后将49~52行注释掉再次上传，这样就可以正常保存进度了
 4. 关于词库制作，我提供了一个java脚本，可以将txt文本格式化为单词卡支持的格式，但格式必须是“单词 音标 释义”的形式
-5. 上传词库需要在 文档--》Arduino目录下新建文件夹“tools”并将本项目提供的tools文件夹中内容放进去，重启Arduino IDE，在工具下即可看到<img src="F:\新版C++课程\typora-user-images\image-20220321131805571.png" alt="image-20220321131805571" style="zoom: 80%;" />
+5. 上传词库需要在 文档--》Arduino目录下新建文件夹“tools”并将本项目提供的tools文件夹中内容放进去，重启Arduino IDE，在工具下即可看到![图片](https://user-images.githubusercontent.com/32239713/159401123-c598ce18-4d4e-4de0-a9ad-e0986b418ee7.png)
+
 6. 一切完成后即可好好学习啦~~~
 
 ​		
