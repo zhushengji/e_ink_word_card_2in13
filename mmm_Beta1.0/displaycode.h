@@ -30,7 +30,7 @@ void draw_words(String line, bool f) {
   u8g2Fonts.print(line.substring(line.indexOf("["), line.indexOf("]") + 1));
   display.drawLine(5, 35, 245, 35, 0); //画水平线
   int k = line.indexOf("]") + 1;
-  String s4 = "";
+  String s4 = "", s5 = "";
   int x = 5, y = 50;
   u8g2Fonts.setFont(chinese_city_gb2312);
   while (k < line.length()) {
@@ -39,10 +39,34 @@ void draw_words(String line, bool f) {
     }
     if ((k <= line.length() - 2 && (line[k + 1] == ' ') && line[k + 2] == ' ' || k == line.length() - 1)) {
       if (s4.length() != 1) {
-        Serial.println(s4);
-        u8g2Fonts.setCursor(x, y);
-        u8g2Fonts.print(s4);
-        y += 18;
+        /*
+         * 2.13寸屏：48
+         * 2.66寸屏：60
+         * 2.9寸屏：69
+        */
+        if (s4.length() <= 69) {
+          Serial.println(s4);
+          u8g2Fonts.setCursor(x, y);
+          u8g2Fonts.print(s4);
+          y += 18;
+        } else if (s4.length() > 69) {
+          for (int m = 0; m < s4.length(); m++) {
+            s5 += s4[m];
+            if (m == 69) {
+              u8g2Fonts.setCursor(x, y);
+              u8g2Fonts.print(s5);
+              Serial.println(s5);
+              y += 18;
+              s5 = "";
+            }
+          }
+          u8g2Fonts.setCursor(x, y);
+          u8g2Fonts.print(s5);
+          Serial.println(s5);
+          y += 18;
+          s5 = "";
+        }
+
       }
       s4 = "";
     }
@@ -87,7 +111,7 @@ void button() {
   File wordsFile ;
   if (filename == "/book.txt") {
     wordsFile = SPIFFS.open("/words.txt", "a");
-//    Serial.println("wordsFile创建成功");
+    //    Serial.println("wordsFile创建成功");
   }
 
   while (dataFile.available()) {
@@ -100,7 +124,6 @@ void button() {
       u8g2Fonts.setBackgroundColor(GxEPD_WHITE);
       u8g2Fonts.setCursor(0, 120);
       u8g2Fonts.print("进度同步成功！开始学习吧！");
-      
       display.nextPage();
       break;
     } else {
@@ -108,7 +131,7 @@ void button() {
       dataFile.readStringUntil('\n');
       conut_flag++;
     }
-    
+
   }
 
   //如果文本未读完
