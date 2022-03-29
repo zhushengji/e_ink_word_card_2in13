@@ -16,6 +16,7 @@
 ## 3.硬件
 
 硬件地址：https://oshwhub.com/zhushengji/2-13words
+本硬件为老款硬件，新版本硬件完成后功能上将有一些调整
 
 ## 4.软件
 
