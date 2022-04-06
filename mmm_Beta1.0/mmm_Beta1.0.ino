@@ -46,6 +46,15 @@ void setup()
      第一次运行需要取消下面4行已防止EEPROM中的原有数据影响词条位置
      传完之后注释掉下面4行，再次上传就可以正常运行了。
   */
+   /*已修复无需二次上传*/
+  int f1 = EEPROM.read(0);
+  int f2 = EEPROM.read(4);
+  if (f1 == f2 && f1 == 255) {
+    EEPROM.write(0, 0);
+    EEPROM.commit();
+    EEPROM.write(4, 0);
+    EEPROM.commit();
+  }
   //    EEPROM.write(0,0);
   //    EEPROM.commit();
   //    EEPROM.write(4,0);
