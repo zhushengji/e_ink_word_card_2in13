@@ -21,8 +21,8 @@
 ## 3.硬件
 
 老硬件地址：https://oshwhub.com/zhushengji/2-13words
+
 新硬件地址：https://oshwhub.com/zhushengji/213-mo-shui-ping-dan-ci-ka-tf-ban-ben
-本硬件为老款硬件，新版本硬件完成后功能上将有一些调整
 
 ## 4.软件
 
