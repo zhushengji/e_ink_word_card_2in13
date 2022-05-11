@@ -24,6 +24,7 @@
 3. 上传词库需要在 文档--》Arduino目录下新建文件夹“tools”并将本项目提供的tools文件夹中内容放进去，重启Arduino IDE，在工具下即可看到
 4. 需要将词库进行格式化处理，本人提供了一个脚本，可实现自动加音标+格式化
 5. 一切完成后即可好好学习啦~~~
+## 实物图
 ![c5c797ab85473ec7171d66e850a8c85](https://user-images.githubusercontent.com/32239713/167846542-5b24ebb7-7e59-4409-a604-877e4896b043.jpg)
 ![29a285a1a464fb348deb51d04cb75d4](https://user-images.githubusercontent.com/32239713/167846556-ceeea8a0-3d2e-41e6-b085-fbdf9236b299.jpg)
 ![6f2aa6c022cd8c703c12ba3c948396e](https://user-images.githubusercontent.com/32239713/167846569-ec5ff1a5-61f0-4c39-9721-9e5f0e1fa89b.jpg)
