@@ -21,7 +21,8 @@ d.需要将html文件放到tf卡的根目录下
 低成本平替喵喵机单词卡
 本作品基于汉朔2.13价签实现了便携单词卡的核心功能，目前可以达到“能用”。本项目代码开放，有能力的同学可以在本项目的基础上实现功能拓展
 ## 2.操作逻辑
-![efde39f7f89afcdd31caf39f79a47b0](https://user-images.githubusercontent.com/32239713/167846110-2a1d1754-c4eb-49b0-b49c-bc68a7e4323c.jpg)
+![image](https://user-images.githubusercontent.com/32239713/170685574-7c2897a9-0ce5-4d91-82ae-221df62fb223.png)
+
 
 
 ## 3.硬件
